@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Kontrol Perlintasan Kereta Api</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- PANEL KIRI -->
+        <div class="left-panel">
+
+            <div class="header">
+                <span><span class="dot"></span> UNIT_PEMANTAUAN_01</span>
+                <span id="clock">00:00:00</span>
+            </div>
+            <div class="monitor">
+                <div class="status-label" id="lbl">AMAN</div>
+                <canvas id="scene3d"></canvas>
+            </div>
+
+            <!-- STATUS SENSOR -->
+            <div class="sensor-panel">
+                <h3>STATUS_SENSOR</h3>
+
+                <div class="sensor-row">
+                    <span class="label">SENSOR_1</span>
+                    <div id="sensor1Lamp" class="sensor-lamp standby"></div>
+                </div>
+
+                <div class="sensor-row">
+                    <span class="label">SENSOR_2</span>
+                    <div id="sensor2Lamp" class="sensor-lamp standby"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL KANAN -->
+        <div class="right-panel">
+
+            <div class="info-card">
+                <h3>STATUS_OPERASIONAL</h3>
+
+                <div class="detail-row">
+                    <span class="label">STATUS KERETA</span>
+                    <span id="trainStatus" class="value">TIDAK TERDETEKSI</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="label">STATUS PALANG</span>
+                    <span id="gateStatus" class="value">TERBUKA</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="label">TOTAL MELINTAS</span>
+                    <span id="cnt" class="value">0</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="label">LAST UPDATE</span>
+                    <span id="lastUpdate" class="value">--:--:--</span>
+                </div>
+
+                <!-- [BARU] Delay Monitoring: ESP32 -> Website -->
+                <div class="detail-row">
+                    <span class="label">DELAY MONITORING</span>
+                    <span id="delayValue" class="value">-</span>
+                </div>
+            </div>
+
+            <div class="log-card">
+                <h3>LOG_AKTIVITAS</h3>
+                <div id="log" class="log-content">
+                    > Sistem online...<br>
+                    > Sensor siap.
+                </div>
+            </div>
+
+            <!-- PANEL ARAH KERETA -->
+            <div class="direction-panel">
+
+         <div class="direction-left">
+
+         <h3>ARAH KERETA</h3>
+
+    <div id="leftBox" class="direction-box">
+        KIRI
+    </div>
+
+    <div id="rightBox" class="direction-box">
+        KANAN
+
+    </div>
+    </div>1
+
+    <div class="direction-right">
+
+        <canvas id="ledCanvas"
+                width="260"
+                height="80">
+        </canvas>
+
+    </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
